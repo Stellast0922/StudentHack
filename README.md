@@ -1,5 +1,3 @@
-# StudentHack
-
 # SolarSafari Seekers Web App
 
 ## Overview
