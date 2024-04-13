@@ -1,0 +1,429 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction Page</title>
+    <link rel="icon" type="image/x-icon" href="planet.ico">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="module">
+        import * as THREE from
+            "https://web.cs.manchester.ac.uk/three/three.js-master/build/three.module.js";
+        import { OrbitControls } from "https://web.cs.manchester.ac.uk/three/three.js-master/examples/jsm/controls/OrbitControls.js";
+        // Your Javascript will go here.
+        var scene, camera, renderer, ambientLight;
+        var sunGeometry, sunMaterial, sunMesh, sunLight;
+        var earthGeometry, earthMaterial, earthMesh;
+        var moonGeometry, moonMaterial, moonMesh;
+        var mercuryGeometry, mercuryMaterial, mercuryMesh;
+        var venusGeometry, venusMaterial, venusMesh;
+        var mercuryGeometry, mercuryMaterial, mercuryMesh;
+        var marsGeometry, marsMaterial, marsMesh;
+        var jupiterGeometry, jupiterMaterial, jupiterMesh;
+        var saturnGeometry, saturnMaterial, saturnMesh;
+        var uranusGeometry, uranusMaterial, uranusMesh;
+        var neptuneGeometry, neptuneMaterial, neptuneMesh;
+        var earthSystem;
+        var orbitRadius = 50;
+        var earthCurve, mercuryCurve, venusCurve, marsCurve, jupiterCurve, saturnCurve, uranusCurve, neptuneCurve;
+        var controls;
+        const loader = new THREE.TextureLoader();
+        var cloudsGeometry, cloudsMaterial, cloudsMesh;
+        var backgroundGeometry, backgroundMaterial, backgroundMesh;
+        function init() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
+            camera.position.set(0, 30, 1090);
+            renderer = new THREE.WebGLRenderer();
+            renderer.setClearColor(0x000000, 1.0);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+            sunObject();
+            addLight();
+            earthObject();
+            moonObject();
+            earthMoonSystem();
+            earthOribit();
+            cloudsObject();
+            background();
+            mercuryObject();
+            mercuryOribit();
+            venusObject();
+            venusOribit();
+            marsObject();
+            marsOribit();
+            jupiterObject();
+            jupiterOribit();
+            saturnObject();
+            saturnOribit();
+            uranusObject();
+            uranusOribit();
+            neptuneObject();
+            neptuneOribit();
+
+            controls = new OrbitControls(camera, renderer.domElement);
+            controls.autoRotate = true;
+        }
+
+        // create function for sun object
+        function sunObject() {
+            var texture = loader.load("https://www.solarsystemscope.com/textures/download/2k_sun.jpg");
+            sunGeometry = new THREE.SphereGeometry(89, 380, 180);
+            sunMaterial = new THREE.MeshStandardMaterial(
+                {
+                    emissive: 0xffd700,
+                    emissiveMap: texture,
+                    emissiveIntensity: 1,
+                    wireframe: false
+                });
+            sunMesh = new THREE.Mesh(sunGeometry, sunMaterial);
+            scene.add(sunMesh);
+        }
+
+        // create function for pointlight and ambientlight
+        function addLight() {
+            sunLight = new THREE.PointLight(0xffffff);
+            sunLight.position.set(0, 0, 0);
+            scene.add(sunLight);
+            ambientLight = new THREE.AmbientLight(0x404040);
+            scene.add(ambientLight);
+        }
+
+        // create function for earth object
+        function earthObject() {
+            var texture = loader.load("https://upload.wikimedia.org/wikipedia/commons/a/ac/Earthmap1000x500.jpg");
+            earthGeometry = new THREE.SphereGeometry(20, 50, 40);
+            earthMaterial = new THREE.MeshPhongMaterial(
+                {
+                    map: texture,
+                });
+            earthMesh = new THREE.Mesh(earthGeometry, earthMaterial);
+        }
+
+        // create function for moon object
+        function moonObject() {
+            var texture = loader.load("https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/lroc_color_poles_1k.jpg");
+            moonGeometry = new THREE.SphereGeometry(5, 40, 20);
+            moonMaterial = new THREE.MeshPhongMaterial(
+                {
+                    map: texture,
+                });
+            moonMesh = new THREE.Mesh(moonGeometry, moonMaterial);
+        }
+
+        // create function for earth and moon system
+        function earthMoonSystem() {
+            earthSystem = new THREE.Group();
+            earthSystem.add(earthMesh);
+            moonMesh.position.set(orbitRadius, 0, 0);
+            earthSystem.add(moonMesh);
+            scene.add(earthSystem);
+        }
+
+        // create function for earth oribit
+        function earthOribit() {
+            earthCurve = new THREE.EllipseCurve(
+                0, 0,
+                400, 350,
+                0, 2 * Math.PI,
+                false,
+                0);
+            var points = earthCurve.getPoints(100);
+            var geometry = new THREE.BufferGeometry().setFromPoints(points);
+            var material = new THREE.LineBasicMaterial(
+                {
+                    color: 0xffffff
+                });
+            var ellipse = new THREE.Line(geometry, material);
+            ellipse.rotation.x = Math.PI / 2;
+            scene.add(ellipse);
+        }
+
+        // create function for clounds object
+        function cloudsObject() {
+            var texture = loader.load("https://i.stack.imgur.com/B3c7G.jpg");
+            cloudsGeometry = new THREE.SphereGeometry(21, 50, 40);
+            cloudsMaterial = new THREE.MeshPhongMaterial(
+                {
+                    map: texture,
+                    transparent: true,
+                    opacity: 0.5
+
+                });
+            cloudsMesh = new THREE.Mesh(cloudsGeometry, cloudsMaterial);
+            earthMesh.add(cloudsMesh);
+        }
+
+        // create function for the starry background
+        function background() {
+            var texture = loader.load("https://cdn.eso.org/images/screen/eso0932a.jpg");
+            backgroundGeometry = new THREE.SphereGeometry(1100, 1100, 1100);
+            backgroundMaterial = new THREE.MeshBasicMaterial({
+                map: texture,
+                side: THREE.DoubleSide
+            });
+            backgroundMesh = new THREE.Mesh(backgroundGeometry, backgroundMaterial);
+            scene.add(backgroundMesh);
+        }
+
+        function mercuryObject() {
+            var texture = loader.load("https://www.solarsystemscope.com/textures/download/2k_mercury.jpg");
+            mercuryGeometry = new THREE.SphereGeometry(10, 40, 20);
+            mercuryMaterial = new THREE.MeshPhongMaterial(
+                {
+                    map: texture,
+                });
+            mercuryMesh = new THREE.Mesh(mercuryGeometry, mercuryMaterial);
+            scene.add(mercuryMesh);
+        }
+
+        function mercuryOribit() {
+            mercuryCurve = new THREE.EllipseCurve(
+                0, 0,
+                200, 150,
+                0, 2 * Math.PI,
+                false,
+                0);
+            var points = mercuryCurve.getPoints(100);
+            var geometry = new THREE.BufferGeometry().setFromPoints(points);
+            var material = new THREE.LineBasicMaterial(
+                {
+                    color: 0xffffff
+                });
+            var ellipse = new THREE.Line(geometry, material);
+            ellipse.rotation.x = Math.PI / 2;
+            scene.add(ellipse);
+        }
+
+        function venusObject() {
+            var texture = loader.load("https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg");
+            venusGeometry = new THREE.SphereGeometry(18, 40, 40);
+            venusMaterial = new THREE.MeshPhongMaterial(
+                {
+                    map: texture,
+                });
+            venusMesh = new THREE.Mesh(venusGeometry, venusMaterial);
+            scene.add(venusMesh);
+        }
+
+        function venusOribit() {
+            venusCurve = new THREE.EllipseCurve(
+                0, 0,
+                300, 250,
+                0, 2 * Math.PI,
+                false,
+                0);
+            var points = venusCurve.getPoints(100);
+            var geometry = new THREE.BufferGeometry().setFromPoints(points);
+            var material = new THREE.LineBasicMaterial(
+                {
+                    color: 0xffffff
+                });
+            var ellipse = new THREE.Line(geometry, material);
+            ellipse.rotation.x = Math.PI / 2;
+            scene.add(ellipse);
+        }
+
+        function marsObject() {
+            var texture = loader.load("https://www.solarsystemscope.com/textures/download/2k_mars.jpg");
+            marsGeometry = new THREE.SphereGeometry(15, 45, 25);
+            marsMaterial = new THREE.MeshPhongMaterial(
+                {
+                    map: texture,
+                });
+            marsMesh = new THREE.Mesh(marsGeometry, marsMaterial);
+            scene.add(marsMesh);
+        }
+
+        function marsOribit() {
+            marsCurve = new THREE.EllipseCurve(
+                0, 0,
+                500, 450,
+                0, 2 * Math.PI,
+                false,
+                0);
+            var points = marsCurve.getPoints(100);
+            var geometry = new THREE.BufferGeometry().setFromPoints(points);
+            var material = new THREE.LineBasicMaterial(
+                {
+                    color: 0xffffff
+                });
+            var ellipse = new THREE.Line(geometry, material);
+            ellipse.rotation.x = Math.PI / 2;
+            scene.add(ellipse);
+        }
+
+        function jupiterObject() {
+            var texture = loader.load("https://www.solarsystemscope.com/textures/download/2k_jupiter.jpg");
+            jupiterGeometry = new THREE.SphereGeometry(55, 70, 70);
+            jupiterMaterial = new THREE.MeshPhongMaterial(
+                {
+                    map: texture,
+                });
+            jupiterMesh = new THREE.Mesh(jupiterGeometry, jupiterMaterial);
+            scene.add(jupiterMesh);
+        }
+
+        function jupiterOribit() {
+            jupiterCurve = new THREE.EllipseCurve(
+                0, 0,
+                650, 600,
+                0, 2 * Math.PI,
+                false,
+                0);
+            var points = jupiterCurve.getPoints(100);
+            var geometry = new THREE.BufferGeometry().setFromPoints(points);
+            var material = new THREE.LineBasicMaterial(
+                {
+                    color: 0xffffff
+                });
+            var ellipse = new THREE.Line(geometry, material);
+            ellipse.rotation.x = Math.PI / 2;
+            scene.add(ellipse);
+        }
+
+        function saturnObject() {
+            var texture = loader.load("https://www.solarsystemscope.com/textures/download/2k_saturn.jpg");
+            saturnGeometry = new THREE.SphereGeometry(55, 70, 70);
+            saturnMaterial = new THREE.MeshPhongMaterial(
+                {
+                    map: texture,
+                });
+            saturnMesh = new THREE.Mesh(saturnGeometry, saturnMaterial);
+            scene.add(saturnMesh);
+        }
+
+        function saturnOribit() {
+            saturnCurve = new THREE.EllipseCurve(
+                0, 0,
+                800, 750,
+                0, 2 * Math.PI,
+                false,
+                0);
+            var points = saturnCurve.getPoints(100);
+            var geometry = new THREE.BufferGeometry().setFromPoints(points);
+            var material = new THREE.LineBasicMaterial(
+                {
+                    color: 0xffffff
+                });
+            var ellipse = new THREE.Line(geometry, material);
+            ellipse.rotation.x = Math.PI / 2;
+            scene.add(ellipse);
+        }
+
+        function uranusObject() {
+            var texture = loader.load("https://www.solarsystemscope.com/textures/download/2k_uranus.jpg");
+            uranusGeometry = new THREE.SphereGeometry(25, 40, 40);
+            uranusMaterial = new THREE.MeshPhongMaterial(
+                {
+                    map: texture,
+                });
+            uranusMesh = new THREE.Mesh(uranusGeometry, uranusMaterial);
+            scene.add(uranusMesh);
+        }
+
+        function uranusOribit() {
+            uranusCurve = new THREE.EllipseCurve(
+                0, 0,
+                900, 850,
+                0, 2 * Math.PI,
+                false,
+                0);
+            var points = uranusCurve.getPoints(100);
+            var geometry = new THREE.BufferGeometry().setFromPoints(points);
+            var material = new THREE.LineBasicMaterial(
+                {
+                    color: 0xffffff
+                });
+            var ellipse = new THREE.Line(geometry, material);
+            ellipse.rotation.x = Math.PI / 2;
+            scene.add(ellipse);
+        }
+
+        function neptuneObject() {
+            var texture = loader.load("https://www.solarsystemscope.com/textures/download/2k_neptune.jpg");
+            neptuneGeometry = new THREE.SphereGeometry(25, 40, 40);
+            neptuneMaterial = new THREE.MeshPhongMaterial(
+                {
+                    map: texture,
+                });
+            neptuneMesh = new THREE.Mesh(neptuneGeometry, neptuneMaterial);
+            scene.add(neptuneMesh);
+        }
+
+        function neptuneOribit() {
+            neptuneCurve = new THREE.EllipseCurve(
+                0, 0,
+                1000, 950,
+                0, 2 * Math.PI,
+                false,
+                0);
+            var points = neptuneCurve.getPoints(100);
+            var geometry = new THREE.BufferGeometry().setFromPoints(points);
+            var material = new THREE.LineBasicMaterial(
+                {
+                    color: 0xffffff
+                });
+            var ellipse = new THREE.Line(geometry, material);
+            ellipse.rotation.x = Math.PI / 2;
+            scene.add(ellipse);
+        }
+
+        // create function for the animation
+        function animate() {
+            var time = 0.00001 * performance.now();
+            var t = time % 1;
+            var earthSystemPoints = earthCurve.getPoint(t * 4);
+            earthSystem.position.x = earthSystemPoints.x;
+            earthSystem.position.z = earthSystemPoints.y;
+            var mercuryPoints = mercuryCurve.getPoint(t * 3.5);
+            mercuryMesh.position.x = mercuryPoints.x;
+            mercuryMesh.position.z = mercuryPoints.y;
+            var venusPoints = venusCurve.getPoint(t * 3);
+            venusMesh.position.x = venusPoints.x;
+            venusMesh.position.z = venusPoints.y;
+            var marsPoints = marsCurve.getPoint(t * 2.5);
+            marsMesh.position.x = marsPoints.x;
+            marsMesh.position.z = marsPoints.y;
+            var jupiterPoints = jupiterCurve.getPoint(t * 2);
+            jupiterMesh.position.x = jupiterPoints.x;
+            jupiterMesh.position.z = jupiterPoints.y;
+            var saturnPoints = saturnCurve.getPoint(t * 1.5);
+            saturnMesh.position.x = saturnPoints.x;
+            saturnMesh.position.z = saturnPoints.y;
+            var uranusPoints = uranusCurve.getPoint(t);
+            uranusMesh.position.x = uranusPoints.x;
+            uranusMesh.position.z = uranusPoints.y;
+            var neptunePoints = neptuneCurve.getPoint(t * 0.5);
+            neptuneMesh.position.x = neptunePoints.x;
+            neptuneMesh.position.z = neptunePoints.y;
+            // search that moon speed is 1.022 km/s
+            var speed = 102;
+            moonMesh.position.x = orbitRadius * Math.cos(time * speed);
+            moonMesh.position.z = orbitRadius * Math.sin(time * speed);
+
+            sunMesh.rotation.y += 0.001;
+            earthMesh.rotation.y += 0.01;
+            cloudsMesh.rotation.y += 0.005;
+            moonMesh.rotation.y += 0.05;
+            mercuryMesh.rotation.y += 0.01;
+
+            renderer.render(scene, camera);
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+    </script>
+</body>
+
+</html>
