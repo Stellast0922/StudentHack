@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="icon" type="image/x-icon" href="planet.ico">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('bg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            height: 40px;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        header img {
+            width: 50px; 
+            height: 50px; 
+        }
+        header div {
+            display: flex; 
+            align-items: center; 
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <h1>SolarSafari Seekers</h1>
+            <img src="planet.png" alt="header image">
+        </div>
+    </header>
+
+    <div class="solarsys">
+        <div class="sun"></div>
+        <div class="mercury"></div>
+        <div class="venus"></div>
+        <div class="earth"></div>
+        <div class="mars"></div>
+        <div class="jupiter"></div>
+        <div class="saturn"></div>
+        <div class="uranus"></div>
+        <div class="neptune"></div>
+    </div>
+
+    <div>
+        <a href="information.html">
+            <button class="button b1">
+                <span class="actual-text">&nbsp;Information&nbsp;</span>
+                <span aria-hidden="true" class="hover-text">&nbsp;Information&nbsp;</span>
+            </button>
+        </a>
+        <a href="planets.html">
+            <button class="button b2">
+                <span class="actual-text">&nbsp;Planets&nbsp;</span>
+                <span aria-hidden="true" class="hover-text">&nbsp;Planets&nbsp;</span>
+            </button>
+        </a>
+        <a href="interact.html" target="_blank">
+            <button class="button b3">
+                <span class="actual-text">&nbsp;Interaction&nbsp;</span>
+                <span aria-hidden="true" class="hover-text">&nbsp;Interaction&nbsp;</span>
+            </button>
+        </a>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 MyWebsite. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,259 @@
+.solarsys {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.sun {
+    height: 65px;
+    width: 65px;
+    background: linear-gradient(45deg, goldenrod, yellow);
+    border-radius: 50%;
+    background-size: cover;
+    box-shadow: -4px 2px 56px #f9c05f;
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mercury {
+    height: 10px;
+    width: 10px;
+    background: gray;
+    border-radius: 50%;
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    box-shadow: -4px 2px 56px #f9c05f;
+    transform: translate(-50%, -50%);
+    animation: rotatem 2s linear infinite;
+}
+
+@keyframes rotatem {
+    0% {
+        transform: rotate(0deg) translateX(45px) translateY(45px);
+    }
+
+    100% {
+        transform: rotate(360deg) translateX(45px) translateY(45px);
+    }
+}
+
+.venus {
+    height: 20px;
+    width: 20px;
+    background: #bf8639;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: -4px 2px 56px #c1aa81;
+    left: 25%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotatev 5s linear infinite;
+}
+
+@keyframes rotatev {
+    0% {
+        transform: rotate(0deg) translateX(60px) translateY(60px);
+    }
+
+    100% {
+        transform: rotate(360deg) translateX(60px) translateY(60px);
+    }
+}
+
+.earth {
+    height: 25px;
+    width: 25px;
+    background: #3b5998;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: -4px 2px 56px #c1aa81;
+    left: 25%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotatee 6s linear infinite;
+}
+
+@keyframes rotatee {
+    0% {
+        transform: rotate(0deg) translateX(75px) translateY(75px);
+    }
+
+    100% {
+        transform: rotate(360deg) translateX(75px) translateY(75px);
+    }
+}
+
+.mars {
+    height: 20px;
+    width: 20px;
+    background: #a22e1e;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: -4px 2px 56px #c1aa81;
+    left: 25%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotatema 8s linear infinite;
+}
+
+@keyframes rotatema {
+    0% {
+        transform: rotate(0deg) translateX(95px) translateY(95px);
+    }
+
+    100% {
+        transform: rotate(360deg) translateX(95px) translateY(95px);
+    }
+}
+
+.jupiter {
+    height: 40px;
+    width: 40px;
+    background: #dbb14b;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: -4px 2px 56px #c1aa81;
+    left: 25%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotatej 10s linear infinite;
+}
+
+@keyframes rotatej {
+    0% {
+        transform: rotate(0deg) translateX(110px) translateY(110px);
+    }
+
+    100% {
+        transform: rotate(360deg) translateX(110px) translateY(110px);
+    }
+}
+
+.saturn {
+    height: 35px;
+    width: 35px;
+    background: #d4b996;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: -4px 2px 56px #c1aa81;
+    left: 25%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotates 12s linear infinite;
+}
+
+@keyframes rotates {
+    0% {
+        transform: rotate(0deg) translateX(145px) translateY(145px);
+    }
+
+    100% {
+        transform: rotate(360deg) translateX(145px) translateY(145px);
+    }
+}
+
+.uranus {
+    height: 30px;
+    width: 30px;
+    background: #5aa7a4;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: -4px 2px 56px #c1aa81;
+    left: 25%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotateu 14s linear infinite;
+}
+
+@keyframes rotateu {
+    0% {
+        transform: rotate(0deg) translateX(175px) translateY(175px);
+    }
+
+    100% {
+        transform: rotate(360deg) translateX(175px) translateY(175px);
+    }
+}
+
+.neptune {
+    height: 30px;
+    width: 30px;
+    background: #4e6c7d;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: -4px 2px 56px #c1aa81;
+    left: 25%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotaten 16s linear infinite;
+}
+
+@keyframes rotaten {
+    0% {
+        transform: rotate(0deg) translateX(200px) translateY(200px);
+    }
+
+    100% {
+        transform: rotate(360deg) translateX(200px) translateY(200px);
+    }
+}
+
+.button {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.button {
+  --border-right: 6px;
+  --text-stroke-color: white;
+  --animation-color: #37FF8B;
+  --fs-size: 2em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Arial";
+  position: absolute;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+
+.button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color))
+}
+
+.b1 {
+    left: 65%;
+    top: 25%;
+}
+
+.b2 {
+    left: 65%;
+    top: 50%;
+}
+
+.b3 {
+    left: 65%;
+    top: 75%;
+}
