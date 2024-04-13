@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>About Us</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="information_styles.css"> -->
+   
     <link rel="icon" type="image/x-icon" href="planet.ico">
-    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,9 +15,8 @@
             padding: 0;
             background-image: url('bg.jpg');
             background-size: cover;
-            background-repeat: no-repeat;
+            background-position: center;
         }
-
         header {
             background-color: #333;
             color: #fff;
@@ -46,6 +45,7 @@
             transition: transform 0.3s ease;
             transition-delay: 2ms;
         }
+
         header nav a:hover::after{
             transition: transform 0.3s ease;
             transition-delay: 2ms;
@@ -70,32 +70,30 @@
             color: #a6a2a1;
             
         }
-
         header img {
             width: 50px; 
             height: 50px; 
         }
+
         header div {
             display: flex; 
             align-items: center; 
         }
-
+    
         .container {
-            flex: 1 0 auto; 
-            max-width: 100%;
-            margin-top: 20px;
-            padding: 10px;
-            padding-bottom: 30px;
-            margin-bottom:0px;
-            /* background-color: #000000; */
-            /* box-shadow: 0 0 10px rgb(0, 0, 0); */
+            flex: 1; 
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffffcf;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 25px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             overflow-y: auto;
         }
-
         footer {
             background-color: #333;
             color: #fff;
@@ -111,7 +109,7 @@
             flex-direction: column;
         } 
 
-        footer a {
+        footer a{
             color: #fff; 
             margin: 0 5px; 
             text-decoration: none;
@@ -130,67 +128,41 @@
 
     </style>
 </head>
-
 <body>
 
+</head>
+<body>
     <header>
         <div>
             <a href="home.html"><img src="planet.png" alt="header image"></a>
             <h1>SolarSafari Seekers</h1>
         </div>
         <nav>
-            <a href="home.html" class="header-nav-item" id="planets-link">Home</a>
+            <a href="home.html">Home</a>
             <a href="information_page.html">Planets</a>
             <a href="information.html">Solar System</a>
             <a href="moons.html">Interactive Site</a>
             <a href="planets-news.html">Quiz</a>
-            <a href="aboutUs.html">About Us</a>
+            <a href="aboutUs.html" class="header-nav-item" id="planets-link">About Us</a>
         </nav>
     </header>
 
-    
-
     <div class="container">
-        <div class="solarsys">
-            <div class="sun"></div>
-            <div class="mercury"></div>
-            <div class="venus"></div>
-            <div class="earth"></div>
-            <div class="mars"></div>
-            <div class="jupiter"></div>
-            <div class="saturn"></div>
-            <div class="uranus"></div>
-            <div class="neptune"></div>
-        </div>
-        <div>
-            <div>
-                <a href="information.html">
-                    <button class="button b1">
-                        <span class="actual-text">&nbsp;Information&nbsp;</span>
-                        <span aria-hidden="true" class="hover-text">&nbsp;Information&nbsp;</span>
-                    </button>
-                </a>
-            </div>
-            <div>
-                <a href="information_page.html">
-                    <button class="button b2">
-                        <span class="actual-text">&nbsp;Planets&nbsp;</span>
-                        <span aria-hidden="true" class="hover-text">&nbsp;Planets&nbsp;</span>
-                    </button>
-                </a>
-            </div>
-            <div>
-                <a href="interact.html" target="_blank">
-                    <button class="button b3">
-                        <span class="actual-text">&nbsp;Interaction&nbsp;</span>
-                        <span aria-hidden="true" class="hover-text">&nbsp;Interaction&nbsp;</span>
-                    </button>
-                </a>
-            </div>            
-        </div>
+        <h2>Our Mission</h2>
+        <p>SolarSafari Seekers is dedicated to making the wonders of the solar system accessible to everyone. Through interactive tools and engaging content, we aim to educate and inspire curiosity about our planetary neighborhood.</p>
+        
+        <h2>Who We Are</h2>
+        <p>We are a team of astronomers, educators, and developers passionate about space exploration. Founded in 2024, our goal is to provide educational resources that are both informative and fascinating.</p>
+        
+        <h2>What We Do</h2>
+        <p>From detailed planet guides to immersive virtual tours, our projects make learning about space fun and accessible. We also offer news updates and quizzes to test your knowledge, ensuring that our audience stays up-to-date with the latest astronomical discoveries.</p>
+        
+        <h2>Join Us</h2>
+        <p>Are you interested in the stars? Do you want to contribute to space education? Join us at SolarSafari Seekers to make a difference in the way the world sees the universe.</p>
     </div>
 
-    <footer>
+
+    <footer>    
         <p>&copy; 2024 SolarSafariSeekers. All rights reserved.</p>
         <div>
             <a href="home.html">Home</a>
@@ -202,7 +174,5 @@
         </div>
     </footer>
     <script type="text/javascript" src="information.js" defer></script>
-
 </body>
-
 </html>
