@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="information_styles.css">
+   
+    <link rel="icon" type="image/x-icon" href="planet.ico">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            transition: transform 0.3s ease;
+            transition-delay: 2ms;
+        }
+
+        header nav a:hover::after{
+            transition: transform 0.3s ease;
+            transition-delay: 2ms;
+            background-color: rgba(111, 110, 110, 0.1);
+
+        }
+
+        header nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+
+        header nav .header-nav-item.active {
+            background-color: rgba(174, 172, 172, 0.5);
+            color: #333;
+            border-radius: 5px;
+        }
+
+
+        h1 {
+            margin: 10px;
+            font-family: 'Roboto', sans-serif;
+            color: #a6a2a1;
+            
+        }
+        header img {
+            width: 50px; 
+            height: 50px; 
+            margin: 10px 15px 15px 10px;
+        }
+        header div {
+            display: flex; 
+            align-items: center; 
+        }
+    
+        .container {
+            flex: 1; 
+            max-width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            padding-bottom: 30px;
+            margin-bottom:0px;
+            background-color: #000000;
+            box-shadow: 0 0 10px rgb(0, 0, 0);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-y: auto;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            text-align: center;
+            width: 100%;
+            flex-shrink: 0;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        } 
+
+        footer a, header a {
+            color: #fff; 
+            margin: 0 5px; 
+            text-decoration: none;
+        }
+
+        footer a:hover, header a:hover {
+            text-decoration: underline; 
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+
+        }
+
+        header, footer{
+            height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+</head>
+<body>
+    <header>
+        <div>
+            <a href="test.html"><img src="planet.png" alt="header image"></a>
+            <h1>SolarSafari Seekers</h1>
+        </div>
+        <nav>
+            <a href="test.html">Home</a>
+            <a href="information_page.html" class="header-nav-item" id="planets-link">Planets</a>
+            <a href="information.html">Solar System</a>
+            <a href="moons.html">Moons</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="planets-news.html">Planets News</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div>
+        <nav class="nav-bar">
+            <a href="#planet-Mercury" class="nav-item" data-planet="Mercury">Mercury</a>
+            <a href="#planet-Venus" class="nav-item" data-planet="Venus">Venus</a>
+            <a href="#planet-Earth" class="nav-item" data-planet="Earth">Earth</a>
+            <a href="#planet-Mars" class="nav-item" data-planet="Mars">Mars</a>
+            <a href="#planet-Jupiter" class="nav-item" data-planet="Jupiter">Jupiter</a>
+            <a href="#planet-Saturn" class="nav-item" data-planet="Saturn">Saturn</a>
+            <a href="#planet-Uranus" class="nav-item" data-planet="Uranus">Uranus</a>
+            <a href="#planet-Neptune" class="nav-item" data-planet="Neptune">Neptune</a>
+        </nav>
+        </div>
+
+        <div class="planet" id="planet-Mercury">
+            
+            <!-- Details of Planets -->
+            <figure class="planet-figure">
+                <div class="image-container">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-1188/1_mercury.jpg" alt="Mercury"/>
+                </div>
+            </figure>
+
+              <div class="info">
+                <div class="planet-title">
+                    <h1>Mercury</h1>
+                    <p class="planet-description"><span class="animated-text">Mercury is the smallest planet, but it's like the mighty mouse of the solar system!
+                        It's super close to the Sun, so it gets as hot as a sizzling pancake on a griddle during the day and as cold as a popsicle at night.
+                        And get this, Mercury has cliffs so tall, they make roller coasters look like kiddie rides!</span>
+                    </p>
+                </div>
+                <div class="planet-details">
+                    <div class="detail" data-detail="tilt">
+                        <span class="value">0.034</span><span class="postfix">°</span>
+                        <div class="title">TILT</div>
+                    </div>
+                    <div class="detail" data-detail="gravity">
+                        <span class="value">0.38</span><span class="postfix">x</span>
+                        <div class="title">GRAVITY</div>
+                    </div>
+                    <div class="detail" data-detail="gravity">
+                        <span class="value">4222.6</span>
+                        <div class="title">HOURS</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="planet" id="planet-Venus">
+            <figure class="planet-figure">
+                <div class="image-container">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-1188/2_venus.jpg" alt="Venus"/>
+                </div>
+            </figure>
+            <div class="info">
+                <div class="planet-title">
+                    <h1>Venus</h1>
+                    <p class="planet-description"><span class="animated-text">Venus is Earth's sister, but it's like the rebel sister with a fiery personality!
+                        It's covered in thick clouds, like a giant marshmallow, but these clouds trap heat, making Venus the hottest planet in the solar system!
+                        Plus, Venus spins so slowly that if you lived there, you'd have to wait longer for your birthday than for a spaceship to travel to Mars!</span>
+                    </p>
+                </div>
+                <div class="planet-details">
+                    <div class="detail" data-detail="tilt">
+                        <span class="value">177.4</span><span class="postfix">°</span>
+                        <div class="title">TILT</div>
+                    </div>
+                    <div class="detail" data-detail="gravity">
+                        <span class="value">0.904</span><span class="postfix">x</span>
+                        <div class="title">GRAVITY</div>
+                    </div>
+                    <div class="detail" data-detail="gravity">
+                        <span class="value">2802</span>
+                        <div class="title">HOURS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="planet" id="planet-Earth">
+            <figure class="planet-figure">
+                <div class="image-container">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-1188/3_earth.jpg" alt="Earth"/>
+                </div>
+              </figure>
+              <div class="info">
+                <div class="planet-title">
+                    <h1>Earth</h1>
+                    <p class="planet-description"><span class="animated-text">Earth is our home sweet home, where all the coolest creatures live, like humans, puppies, and even unicorns! Okay, maybe not unicorns, but wouldn't that be awesome?
+                        We've got oceans, mountains, and even rainbows! It's like living in a giant, colorful playground!
+                        And guess what? Earth has a magical shield called the ozone layer that keeps us safe from the Sun's tickly rays!</span>
+                    </p>
+                </div>
+                <div class="planet-details">
+                    <div class="detail" data-detail="tilt">
+                        <span class="value">23.5</span><span class="postfix">°</span>
+                        <div class="title">TILT</div>
+                    </div>
+                    <div class="detail" data-detail="gravity">
+                        <span class="value">1</span><span class="postfix">x</span>
+                        <div class="title">GRAVITY</div>
+                    </div>
+                    <div class="detail" data-detail="gravity">
+                        <span class="value">24</span>
+                        <div class="title">HOURS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="planet" id="planet-Mars">
+            <figure class="planet-figure">
+                <div class="image-container">
+                    <img src="DALL·E_2024-04-13_14.34.34_-_Realistic_and_detailed_illustration_of_the_planet_Mars__isolated_on_a_transparent_background__suitable_for_educational_purposes._The_image_should_depi-transformed.webp" alt="Mars"/>
+                </div> 
+                </figure>
+                <div class="info">
+                    <div class="planet-title">
+                        <h1>Mars</h1>
+                        <p class="planet-description"><span class="animated-text">Mars is the red rockstar of the solar system!
+                            It's got ginormous volcanoes and canyons deeper than a superhero's secret hideout!
+                            Scientists think Mars might have had rivers and lakes long ago, which means it could have been a super cool hangout spot for space explorers!</span>
+                        </p>
+                    </div>
+                    <div class="planet-details">
+                        <div class="detail" data-detail="tilt">
+                            <span class="value">25</span><span class="postfix">°</span>
+                            <div class="title">TILT</div>
+                        </div>
+                        <div class="detail" data-detail="gravity">
+                            <span class="value">0.376</span><span class="postfix">x</span>
+                            <div class="title">GRAVITY</div>
+                        </div>
+                        <div class="detail" data-detail="gravity">
+                            <span class="value">24.6</span>
+                            <div class="title">HOURS</div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="planet" id="planet-Jupiter">
+            <!-- Details of Planets -->
+            <figure class="planet-figure">
+                <div class="image-container">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-1188/5_jupiter.jpg" alt="Jupiter"/>
+                </div>
+            </figure>
+            <div class="info">
+                <div class="planet-title">
+                    <h1>Jupiter</h1>
+                    <p class="planet-description"><span class="animated-text">Jupiter is the big bully of the block, but in a fun way!
+                        It's so big that if you could turn it into a giant beach ball, all the other planets would be its beach toys!
+                        And check this out, Jupiter has a never-ending storm called the Great Red Spot that's like a giant swirling whirlpool of colors!</span>
+                    </p>
+                </div>
+                <div class="planet-details">
+                    <div class="detail" data-detail="tilt">
+                        <span class="value">3.13</span><span class="postfix">°</span>
+                        <div class="title">TILT</div>
+                    </div>
+                    <div class="detail" data-detail="gravity">
+                        <span class="value">2.528</span><span class="postfix">x</span>
+                        <div class="title">GRAVITY</div>
+                    </div>
+                    <div class="detail" data-detail="gravity">
+                        <span class="value">9.9</span>
+                        <div class="title">HOURS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="planet" id="planet-Saturn">
+            <!-- Details of Planets -->
+            <figure class="planet-figure">
+                <div class="image-container">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-1188/6_saturn.jpg" alt="Saturn"/>
+                </div>
+            </figure>
+            <div class="info">
+                <div class="planet-title">
+                    <h1>Saturn</h1>
+                    <p class="planet-description"><span class="animated-text">Saturn is like the fancy space queen with its shimmering rings made of ice and stardust!
+                        It's so light and fluffy that if you could find a cosmic bathtub big enough, Saturn would float like a giant rubber ducky!
+                        And guess what? Saturn's moon Titan has lakes of liquid methane, making it the perfect spot for a space swim!</span>
+                    </p>
+                </div>
+                <div class="planet-details">
+                    <div class="detail" data-detail="tilt">
+                        <span class="value">26.73</span><span class="postfix">°</span>
+                        <div class="title">TILT</div>
+                    </div>
+                    <div class="detail" data-detail="gravity">
+                        <span class="value">1.065</span><span class="postfix">x</span>
+                        <div class="title">GRAVITY</div>
+                    </div>
+                    <div class="detail" data-detail="gravity">
+                        <span class="value">10.7</span>
+                        <div class="title">HOURS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="planet" id="planet-Uranus">
+              <!-- Details of Planets -->
+            <figure class="planet-figure">
+                <div class="image-container">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-1188/7_uranus.jpg" alt="Uranus"/>
+                </div>
+            </figure>
+            <div class="info">
+                <div class="planet-title">
+                    <h1>Uranus</h1>
+                    <p class="planet-description"><span class="animated-text">Uranus is the quirky oddball of the solar system, spinning on its side like a cosmic cartwheel!
+                        It's super chilly and blue like a frozen blueberry popsicle!
+                        And did you know Uranus has moons with names like Ariel, Miranda, and Oberon? Sounds like a magical space adventure, right?</span>
+                    </p>
+                </div>
+                <div class="planet-details">
+                    <div class="detail" data-detail="tilt">
+                        <span class="value">9.777</span><span class="postfix">°</span>
+                        <div class="title">TILT</div>
+                    </div>
+                    <div class="detail" data-detail="gravity">
+                        <span class="value">0.886</span><span class="postfix">x</span>
+                        <div class="title">GRAVITY</div>
+                    </div>
+                    <div class="detail" data-detail="gravity">
+                        <span class="value">17.2</span>
+                        <div class="title">HOURS</div>
+                    </div>
+                </div>
+            </div>      
+        </div>
+
+        <div class="planet" id="planet-Neptune">
+            <figure class="planet-figure">
+                <div class="image-container">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-1188/8_neptune.jpg" alt="Neptune"/>
+                </div>
+            </figure>
+            <div class="info">
+                <div class="planet-title">
+                    <h1>Neptune</h1>
+                    <p class="planet-description"><span class="animated-text">Neptune is the far-out adventurer, hanging out in the chilly depths of the solar system with its stunning blue hue!
+                        It's the windiest planet, with gusts so strong they'd blow your socks off faster than a sneeze!
+                        And check this out, Neptune's moon Triton is so cold, it's like a giant cosmic freezer full of icy surprises!</span></p>
+                </div>
+                <div class="planet-details">
+                    <div class="detail" data-detail="tilt">
+                        <span class="value">28.32</span><span class="postfix">°</span>
+                        <div class="title">TILT</div>
+                    </div>
+                    <div class="detail" data-detail="gravity">
+                        <span class="value">1.14</span><span class="postfix">x</span>
+                        <div class="title">GRAVITY</div>
+                    </div>
+                    <div class="detail" data-detail="gravity">
+                        <span class="value">16.1</span>
+                        <div class="title">HOURS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>    
+        <p>&copy; 2024 SolarSafariSeekers. All rights reserved.</p>
+        <div>
+            <a href="home.html">Home</a>
+            <a href="information_page.html">Planets</a>
+            <a href="information.html">Solar System</a>
+            <a href="moons.html">Moons</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="planets-news.html">Planets News</a>
+        </div>
+    </footer>
+    <script type="text/javascript" src="information.js" defer></script>
+</body>
+</html>
