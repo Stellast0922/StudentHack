@@ -1,8 +1,21 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    min-height: 110vh; /* ensures that the body is at least the height of the viewport */
+}
+
 .solarsys {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
+
 
 .sun {
     height: 65px;
@@ -211,9 +224,11 @@
 }
 
 .button {
+    background-color: #5a657610;
+    border-radius: 50px;
   --border-right: 6px;
-  --text-stroke-color: white;
-  --animation-color: #37FF8B;
+  color: rgba(255, 255, 255, 0.703);
+  --animation-color: #8592be;
   --fs-size: 2em;
   letter-spacing: 3px;
   text-decoration: none;
@@ -221,8 +236,10 @@
   font-family: "Arial";
   position: absolute;
   text-transform: uppercase;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--text-stroke-color);
+  /* color: transparent; */
+  /* -webkit-text-stroke: 1px var(--text-stroke-color); */
+  transition: transform 0.3s ease;
+  transition-delay: 2ms;
 }
 
 .hover-text {
@@ -238,9 +255,16 @@
   -webkit-text-stroke: 1px var(--animation-color);
 }
 
+.button:hover{
+    transform: scale(1.05);
+
+}
+
 .button:hover .hover-text {
   width: 100%;
-  filter: drop-shadow(0 0 23px var(--animation-color))
+  filter: drop-shadow(0 0 23px var(--animation-color));
+  transform: scale(1.05);
+  
 }
 
 .b1 {
