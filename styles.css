@@ -269,15 +269,20 @@ body {
 
 .b1 {
     left: 65%;
-    top: 25%;
+    top: 20%;
 }
 
 .b2 {
     left: 65%;
-    top: 50%;
+    top: 40%;
 }
 
 .b3 {
     left: 65%;
-    top: 75%;
+    top: 60%;
+}
+
+.b4 {
+    left: 65%;
+    top: 80%;
 }
