@@ -170,16 +170,16 @@
 
 <header>
     <div>
+        <a href="home.html"><img src="planet.png" alt="header image"></a>
         <h1>SolarSafari Seekers</h1>
-        <img src="planet.png" alt="header image">
     </div>
     <nav>
         <a href="home.html">Home</a>
-        <a href="planets.html">Planets</a>
+        <a href="information_page.html">Planets</a>
         <a href="information.html">Solar System</a>
-        <a href="moons.html">Interactive Site</a>
-		<a href="planets-news.html">Quiz</a>
-        <a href="about.html">About Us</a>
+        <a href="interact.html">Interactive Site</a>
+		<a href="quiz.html">Quiz</a>
+        <a href="aboutUs.html">About Us</a>
        
     </nav>
 </header>
@@ -277,63 +277,57 @@
         <a href="home.html">Home</a>
         <a href="information_page.html">Planets</a>
         <a href="information.html">Solar System</a>
-        <a href="moons.html">Interactive Site</a>
-        <a href="planets-news.html">Quiz</a>
+        <a href="interact.html">Interactive Site</a>
+        <a href="quiz.html">Quiz</a>
         <a href="aboutUs.html">About Us</a>
     </div>
 </footer>
 
 <script>
     function submitQuiz() {
-        var answers = {};
-        var q1 = document.querySelector('input[name="q1"]:checked');
-        var q2 = document.querySelector('input[name="q2"]:checked');
-		var q3 = document.querySelector('input[name="q3"]:checked');
-		var q4 = document.querySelector('input[name="q4"]:checked');
-        var correctAnswers = {
-            "Question 1": "Mercury",
-            "Question 2": "Mars",
-			"Question 3": "Jupiter",
-			"Question 4": "Jupiter"
-        };
+    var correctAnswers = {
+        "q1": "Mercury",
+        "q2": "Mars",
+        "q3": "Jupiter",
+        "q4": "Jupiter"
+    };
 
-        if (q1 && q2 && q3 && q4) {
-            answers["Question 1"] = q1.value;
-            answers["Question 2"] = q2.value;
-			answers["Question 3"] = q3.value;
-			answers["Question 4"] = q4.value;
-			
-
-            if (answers["Question 1"] === correctAnswers["Question 1"]) {
-                document.querySelector('input[value="Mercury"]').parentNode.style.color = "green";
-            } else {
-                    document.querySelector('input[value="' + answers["Question 1"] + '"]').parentNode.style.color = "red";
-            }
-			
-			if (answers["Question 2"] === correctAnswers["Question 2"]) {
-			    document.querySelector('input[value="Mars"]').parentNode.style.color = "green";
-			} else {
-			        document.querySelector('input[value="' + answers["Question 2"] + '"]').parentNode.style.color = "red";
-			}
-			
-			if (answers["Question 3"] === correctAnswers["Question 3"]) {
-			    document.querySelector('input[value="Jupiter"]').parentNode.style.color = "green";
-			} else {
-			        document.querySelector('input[value="' + answers["Question 3"] + '"]').parentNode.style.color = "red";
-			}
-			
-			if (answers["Question 4"] === correctAnswers["Question 4"]) {
-						    document.querySelector('input[value="Jupiter"]').parentNode.style.color = "green";
-						} else {
-						        document.querySelector('input[value="' + answers["Question 4"] + '"]').parentNode.style.color = "red";
-						}
-			
-
-            console.log(answers);
-        } else {
-            alert("Please answer all questions before submitting.");
-        }
+    // Reset colors for all options before checking new answers
+    function resetColors() {
+        document.querySelectorAll('.option').forEach(function(option) {
+            option.style.color = ''; // Reset to default text color
+        });
     }
+
+    // This function checks and colors the answers
+    function checkAndColorAnswer(questionId, correctAnswer) {
+        var selectedOption = document.querySelector('input[name="' + questionId + '"]:checked');
+        if (selectedOption) {
+            if (selectedOption.value === correctAnswer) {
+                selectedOption.parentNode.style.color = "green";
+            } else {
+                selectedOption.parentNode.style.color = "red";
+            }
+        } else {
+            return false;
+        }
+        return true;
+    }
+
+    resetColors();
+
+    // Check each question
+    var allAnswered = true;
+    allAnswered &= checkAndColorAnswer("q1", correctAnswers["q1"]);
+    allAnswered &= checkAndColorAnswer("q2", correctAnswers["q2"]);
+    allAnswered &= checkAndColorAnswer("q3", correctAnswers["q3"]);
+    allAnswered &= checkAndColorAnswer("q4", correctAnswers["q4"]);
+
+    if (!allAnswered) {
+        alert("Not all questions answered.");
+    }
+}
+
 </script>
 
 </body>

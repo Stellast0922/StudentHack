@@ -81,19 +81,41 @@
         }
     
         .container {
+            position: relative; /* Set the container to position relative */
             flex: 1; 
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #ffffffcf;
+            background-color: #ffffffbf;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             border-radius: 25px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            overflow-y: auto;
+            color: black;
+            overflow: hidden; /* Ensures that nothing spills outside the container */
         }
+
+        .container img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            width: 50%;
+            height: auto;
+            opacity: 1;
+        }
+
+        /* .highlight-text{
+            background-color: rgba(255, 255, 255, 0.508);
+            border-radius: 10px;
+            padding:5px 5px 5px 5px;
+        }
+
+         */
+
         footer {
             background-color: #333;
             color: #fff;
@@ -126,6 +148,8 @@
             height: 30px;
         }
 
+        
+
     </style>
 </head>
 <body>
@@ -142,23 +166,25 @@
             <a href="information_page.html">Planets</a>
             <a href="information.html">Solar System</a>
             <a href="interact.html" target="_blank">Interactive Site</a>
-            <a href="planets-news.html">Quiz</a>
+            <a href="quiz.html">Quiz</a>
             <a href="aboutUs.html" class="header-nav-item" id="planets-link">About Us</a>
         </nav>
     </header>
+    
 
     <div class="container">
-        <h2>Our Mission</h2>
-        <p>SolarSafari Seekers is dedicated to making the wonders of the solar system accessible to everyone. Through interactive tools and engaging content, we aim to educate and inspire curiosity about our planetary neighborhood.</p>
+        <img src="outer-space-sphere-astronomical-object-planet-solar-system-removebg-preview.png" alt="solar-system">
+        <h2 class="highlight-text">Our Mission</h2>
+        <p class="highlight-text">SolarSafari Seekers is dedicated to making the wonders of the solar system accessible to everyone. Through interactive tools and engaging content, we aim to educate and inspire curiosity about our planetary neighborhood.</p>
         
-        <h2>Who We Are</h2>
-        <p>We are a team of astronomers, educators, and developers passionate about space exploration. Founded in 2024, our goal is to provide educational resources that are both informative and fascinating.</p>
+        <h2 class="highlight-text">Who We Are</h2>
+        <p class="highlight-text">We are a team of astronomers, educators, and developers passionate about space exploration. Founded in 2024, our goal is to provide educational resources that are both informative and fascinating.</p>
         
-        <h2>What We Do</h2>
-        <p>From detailed planet guides to immersive virtual tours, our projects make learning about space fun and accessible. We also offer news updates and quizzes to test your knowledge, ensuring that our audience stays up-to-date with the latest astronomical discoveries.</p>
+        <h2 class="highlight-text">What We Do</h2>
+        <p class="highlight-text">From detailed planet guides to immersive virtual tours, our projects make learning about space fun and accessible. We also offer news updates and quizzes to test your knowledge, ensuring that our audience stays up-to-date with the latest astronomical discoveries.</p>
         
-        <h2>Join Us</h2>
-        <p>Are you interested in the stars? Do you want to contribute to space education? Join us at SolarSafari Seekers to make a difference in the way the world sees the universe.</p>
+        <h2 class="highlight-text">Join Us</h2>
+        <p class="highlight-text">Are you interested in the stars? Do you want to contribute to space education? Join us at SolarSafari Seekers to make a difference in the way the world sees the universe.</p>
     </div>
 
 
@@ -169,7 +195,7 @@
             <a href="information_page.html">Planets</a>
             <a href="information.html">Solar System</a>
             <a href="interact.html" target="_blank">Interactive Site</a>
-            <a href="planets-news.html">Quiz</a>
+            <a href="quiz.html">Quiz</a>
             <a href="aboutUs.html">About Us</a>
         </div>
     </footer>

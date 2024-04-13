@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             span.textContent = word + ' ';
             span.style.opacity = 0;
             span.style.animation = 'fadeIn 0.3s forwards';
-            span.style.animationDelay = `${0.1 * index}s`; // Adjust delay for faster animation start
+            span.style.animationDelay = `${0.1 * index}s`;
             element.appendChild(span);
         });
         element.lastChild.onanimationend = () => {
@@ -127,3 +127,39 @@ document.addEventListener("DOMContentLoaded", function() {
         planetsLink.classList.add("active");
     }
 });
+
+// Function to generate a random number within a range
+function getRandomNumber(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+// Function to create a star element and add it to the specified container
+function createStar(container) {
+    // Create a new div element for the star
+    const star = document.createElement('div');
+    star.classList.add('star');
+
+    // Randomly position the star within the container
+    const containerRect = container.getBoundingClientRect();
+    const x = getRandomNumber(0, containerRect.width);
+    const y = getRandomNumber(0, containerRect.height);
+    star.style.left = x + 'px';
+    star.style.top = y + 'px';
+
+    // Add the star to the container
+    container.appendChild(star);
+}
+
+// Get all the .planet elements
+const planets = document.querySelectorAll('.planet');
+
+// Generate stars within each .planet element
+planets.forEach(planet => {
+    const numStars = 20;
+    for (let i = 0; i < numStars; i++) {
+        createStar(planet);
+    }
+});
+
+
+

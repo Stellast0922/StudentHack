@@ -143,6 +143,18 @@ html, body {
     transition: transform 0.5s ease, opacity 0.5s ease;
     transform: translateX(100%);
     opacity: 0;
+    position: relative;
+    
+}
+
+.planet::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
 .planet.active .info {
@@ -180,6 +192,34 @@ body {
     background-size: cover;
     /* Adjust the animation time if needed to slow down or speed up the movement */
     animation: moveTwinkBack 200s linear infinite;
+}
+
+/* Define a CSS animation for twinkling effect */
+@keyframes twinkling {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Define CSS rules for individual stars */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 60%;
+    animation: twinkling 5s infinite;
+}
+
+
+/* Randomly position stars across the screen */
+.star:nth-child(1) {
+    top: 10%;
+    left: 20%;
+}
+.star:nth-child(2) {
+    top: 20%;
+    left: 50%;
 }
 
 
