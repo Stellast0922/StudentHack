@@ -6,6 +6,8 @@
     <title>Planets</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="information_styles.css">
+    <link rel="stylesheet" href="chatbotstyle.css">
+
    
     <link rel="icon" type="image/x-icon" href="planet.ico">
     <style>
@@ -264,7 +266,7 @@
         <div class="planet" id="planet-Mars">
             <figure class="planet-figure">
                 <div class="image-container">
-                    <img src="DALL·E_2024-04-13_14.34.34_-_Realistic_and_detailed_illustration_of_the_planet_Mars__isolated_on_a_transparent_background__suitable_for_educational_purposes._The_image_should_depi-transformed.webp" alt="Mars"/>
+                    <img src="mars.webp" alt="Mars"/>
                 </div> 
                 </figure>
                 <div class="info">
@@ -420,6 +422,31 @@
 
     </div>
 
+    <div id="chat-container">
+        <div id="chat-button">
+          <img src="chatbot-removebg-preview.png" alt="Chat with us" />
+        </div>
+        <div id="chat-interface" class="chat-hidden">
+            <div id="chat-box">
+                <div id="chat-messages"></div>
+            </div>
+            <div class="input-wrapper"> <!-- New wrapper for input and button -->
+                <input type="text" id="chat-input" placeholder="Type your message here..." />
+                <button id="send-btn">
+                    <div class="svg-wrapper-1">
+                        <div class="svg-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                            </svg>
+                            <!-- <span>Send</span> -->
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+     </div>
+
     <footer>    
         <p>&copy; 2024 SolarSafariSeekers. All rights reserved.</p>
         <div>
@@ -432,5 +459,6 @@
         </div>
     </footer>
     <script type="text/javascript" src="information.js" defer></script>
+    <script type="text/javascript" src="main.js" defer></script>
 </body>
 </html>
