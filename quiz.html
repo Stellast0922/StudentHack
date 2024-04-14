@@ -130,18 +130,79 @@
             color: #333;
         }
 
-        .options {
-            display: flex;
-            flex-direction: column;
-        }
+        .option:hover{
+            background-color: #f4f4f4;
 
-        .option {
-            margin-bottom: 10px;
         }
 
         .option input[type="radio"] {
-            margin-right: 10px;
+            display: none;
         }
+
+        .option label {
+            position: relative;
+            padding-left: 35px;
+            cursor: pointer;
+            display: inline-block;
+            line-height: 20px;
+            font-size: 16px;
+            margin: 5px;
+            color: #333;
+            transition: all 0.3s ease;
+            user-select: none;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+        }
+
+        .option label:before, .option label:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+
+        .option label:before {
+            background-color: #f4f4f4;
+            border: 2px solid #d4d4d4;
+        }
+
+        .option label:hover {
+            background-color: #e9e9e9;
+        }
+
+        .option label:hover:before {
+            background-color: #ada6a6;
+        }
+
+        .option input[type="radio"]:checked + label:before {
+            border-color: #5b6090; 
+        }
+
+        .option input[type="radio"]:checked + label:after {
+            background-color: #2d3152;
+            top: 5px;
+            left: 5px;
+            width: 10px;
+            height: 10px;
+        }
+        .option input[type="radio"]:checked {
+            background-color: #918a8a;
+        }
+
+        .option label:after {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        .option input[type="radio"]:checked + label:after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
 
         .submit-btn {
             background-color: #333;
@@ -230,7 +291,7 @@
         <a href="information_page.html">Planets</a>
         <a href="information.html">Solar System</a>
         <a href="interact.html" target="_blank">Interactive Site</a>
-		<a href="quiz.html">Quiz</a>
+		<a href="quiz.html" class="header-nav-item" id="planets-link">Quiz</a>
         <a href="aboutUs.html">About Us</a>
     </nav>
 </header>
@@ -415,7 +476,18 @@ window.onload = function() {
     });
 };
 
+document.querySelector('.submit-btn').addEventListener('click', function(e) {
+    if (!confirm("Are you sure you want to submit your answers?")) {
+        e.preventDefault(); // Stop the form from submitting
+    } else {
+        submitQuiz(); // Call your existing submitQuiz function
+    }
+});
+
+
 </script>
+<script type="text/javascript" src="information.js" defer></script>
+
 <script type="text/javascript" src="main.js" defer></script>
 
 
