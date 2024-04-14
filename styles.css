@@ -255,15 +255,15 @@ body {
   -webkit-text-stroke: 1px var(--animation-color);
 }
 
-.button:hover{
+/* .button:hover{
     transform: scale(1.05);
 
-}
+} */
 
 .button:hover .hover-text {
   width: 100%;
   filter: drop-shadow(0 0 23px var(--animation-color));
-  transform: scale(1.05);
+  /* transform: scale(1.05); */
   
 }
 

@@ -7,6 +7,8 @@
     <link rel="icon" type="image/x-icon" href="planet.ico">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="chatbotstyle.css">
+
 
     <style>
         body {
@@ -125,7 +127,7 @@
         .question {
             font-weight: bold;
             margin-bottom: 10px;
-            color: #333; /* Change color for better readability */
+            color: #333;
         }
 
         .options {
@@ -134,11 +136,11 @@
         }
 
         .option {
-            margin-bottom: 10px; /* Increase margin for better separation */
+            margin-bottom: 10px;
         }
 
         .option input[type="radio"] {
-            margin-right: 10px; /* Add some space between radio button and label */
+            margin-right: 10px;
         }
 
         .submit-btn {
@@ -185,6 +187,33 @@
             0% { width: 100%; } 
             100% { width: 0%; } 
         }
+
+        .suggested-responses {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .suggested-responses button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .suggested-responses button:hover {
+            background-color: #45a049;
+        }
+
 
         
     </style>
@@ -294,6 +323,32 @@
     <div id="time-bar"></div>
 </div>
 
+<div id="chat-container">
+    <div id="chat-button">
+      <img src="chatbot-removebg-preview.png" alt="Chat with us" />
+    </div>
+    <div id="chat-interface" class="chat-hidden">
+        <div id="chat-box">
+            <div id="chat-messages"></div>
+        </div>
+        <div id="suggested-responses" class="suggested-responses"></div>
+        <div class="input-wrapper"> <!-- New wrapper for input and button -->
+            <input type="text" id="chat-input" placeholder="Type your message here..." />
+            <button id="send-btn">
+                <div class="svg-wrapper-1">
+                    <div class="svg-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="none" d="M0 0h24v24H0z"></path>
+                            <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                        </svg>
+                        <!-- <span>Send</span> -->
+                    </div>
+                </div>
+            </button>
+        </div>
+    </div>
+ </div>
+
 <footer>    
     <p>&copy; 2024 MyWebsite. All rights reserved.</p>
     <div>
@@ -361,6 +416,8 @@ window.onload = function() {
 };
 
 </script>
+<script type="text/javascript" src="main.js" defer></script>
+
 
 </body>
 </html>

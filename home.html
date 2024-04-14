@@ -129,7 +129,32 @@
             height: 30px;
         }
 
-        
+        .suggested-responses {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .suggested-responses button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .suggested-responses button:hover {
+            background-color: #45a049;
+        }
+
 
     </style>
 </head>
@@ -185,8 +210,8 @@
             <div>
                 <a href="interact.html" target="_blank">
                     <button class="button b3">
-                        <span class="actual-text">&nbsp;Interactive Site&nbsp;</span>
-                        <span aria-hidden="true" class="hover-text">&nbsp;InteractiveSite&nbsp;</span>
+                        <span class="actual-text">&nbsp;Interactive&nbsp;</span>
+                        <span aria-hidden="true" class="hover-text">&nbsp;Interactive&nbsp;</span>
                     </button>
                 </a>
             </div> 
@@ -209,7 +234,9 @@
             <div id="chat-box">
                 <div id="chat-messages"></div>
             </div>
-            <div class="input-wrapper"> <!-- New wrapper for input and button -->
+            <div id="suggested-responses" class="suggested-responses"></div>
+
+            <div class="input-wrapper">
                 <input type="text" id="chat-input" placeholder="Type your message here..." />
                 <button id="send-btn">
                     <div class="svg-wrapper-1">
